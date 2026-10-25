@@ -21,38 +21,48 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#fbbf24',
+              goldLight: '#fde68a',
+              goldDark: '#d97706',
+              darkBg: '#090a0f',
+              cardBg: '#121522',
+              surface: '#151928'
+            }
           }
         }
       }
     }
   </script>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+<body class="bg-[#090a0f] text-slate-100 antialiased font-sans selection:bg-amber-400 selection:text-slate-950">
 
   <!-- Top Announcement Bar -->
-  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 text-center font-medium tracking-wide">
+  <div class="bg-[#06070a] text-amber-300/90 text-xs py-2 px-4 text-center font-medium tracking-wide border-b border-amber-500/10">
     ✨ Envío estándar gratuito en pedidos superiores a $60 | Devoluciones fáciles en 30 días
   </div>
 
   <!-- Navigation Bar -->
-  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 shadow-sm transition-all">
+  <header class="bg-[#0d0f17]/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-800/80 shadow-lg transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-2 group">
-        <span class="font-serif text-3xl font-bold tracking-widest text-slate-900 group-hover:text-indigo-600 transition">AURA</span>
-        <span class="text-[9px] uppercase tracking-widest font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full border border-slate-200">Boutique</span>
+        <span class="font-serif text-3xl font-bold tracking-widest text-white group-hover:text-amber-400 transition duration-300">AURA</span>
+        <span class="text-[9px] uppercase tracking-widest font-semibold bg-amber-400/10 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-400/20">Boutique</span>
       </a>
 
       <!-- Search Input (Desktop) -->
       <div class="hidden md:flex flex-1 max-w-md mx-6">
         <div class="relative w-full">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-500 text-sm"></i>
           <input 
             type="text" 
             id="searchInput"
             placeholder="Buscar vestidos, camisas, chaquetas..." 
-            class="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-2 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition"
+            class="w-full bg-[#151928] border border-slate-800 rounded-full pl-10 pr-4 py-2 text-xs text-slate-100 placeholder-slate-500 focus:bg-[#1a1f33] focus:outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400/60 transition shadow-inner"
           >
         </div>
       </div>
@@ -61,12 +71,12 @@
       <div class="flex items-center gap-3 sm:gap-4">
         <button 
           onclick="toggleCart(true)" 
-          class="relative p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition flex items-center gap-2"
+          class="relative p-2.5 px-3.5 rounded-full bg-[#151928] hover:bg-[#1f253d] text-slate-200 border border-slate-800 transition flex items-center gap-2.5 shadow-sm group"
           aria-label="Abrir carrito"
         >
-          <i class="fa-solid fa-bag-shopping text-base text-slate-900"></i>
-          <span class="hidden sm:inline text-xs font-semibold text-slate-900">Bolsa</span>
-          <span id="cartBadge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-indigo-600 text-white rounded-full text-[10px] font-bold flex items-center justify-center shadow-sm">
+          <i class="fa-solid fa-bag-shopping text-base text-amber-400 group-hover:scale-110 transition-transform"></i>
+          <span class="hidden sm:inline text-xs font-semibold text-slate-200">Bolsa</span>
+          <span id="cartBadge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-amber-400 text-slate-950 rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-md">
             0
           </span>
         </button>
@@ -76,41 +86,41 @@
   </header>
 
   <!-- Hero Banner -->
-  <section class="relative bg-slate-900 text-white overflow-hidden py-16 sm:py-24">
-    <div class="absolute inset-0 opacity-30 mix-blend-overlay">
+  <section class="relative bg-gradient-to-b from-[#0d0f17] via-[#090a0f] to-[#090a0f] text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800/60">
+    <div class="absolute inset-0 opacity-20 mix-blend-luminosity">
       <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80" alt="Colección de moda" class="w-full h-full object-cover">
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8">
       <div class="max-w-xl">
-        <span class="text-xs uppercase tracking-widest font-semibold text-indigo-400 bg-indigo-950/60 border border-indigo-800/40 px-3 py-1 rounded-full">
+        <span class="text-xs uppercase tracking-widest font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
           Nueva Temporada 2026
         </span>
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 leading-tight">
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 leading-tight text-slate-50">
           Elegancia sin esfuerzo para cada día.
         </h1>
-        <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed font-light">
-          Prendas seleccionadas con materiales sostenibles, cortes impecables y un diseño atemporal que eleva tu guardarropa diario.
+        <p class="text-sm sm:text-base text-slate-400 mt-4 leading-relaxed font-light">
+          Prendas seleccionadas con materiales sostenibles, cortes impecables y un diseño atemporal que eleva tu guardarropa con distinción.
         </p>
         <div class="mt-8 flex flex-wrap gap-3 justify-center sm:justify-start">
-          <a href="#catalogo" class="px-6 py-3 bg-white text-slate-900 text-xs sm:text-sm font-semibold rounded-xl hover:bg-slate-100 transition shadow-lg">
+          <a href="#catalogo" class="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs sm:text-sm font-bold rounded-xl transition shadow-lg shadow-amber-500/10 hover:scale-[1.02]">
             Explorar Catálogo
           </a>
-          <button onclick="currentCategory='mujer'; setupFilterButtons(); renderProducts(); document.getElementById('catalogo').scrollIntoView();" class="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-white/20 transition">
+          <button onclick="setActiveCategory('mujer'); document.getElementById('catalogo').scrollIntoView();" class="px-6 py-3 bg-[#151928] border border-slate-700/80 hover:border-slate-500 text-slate-200 text-xs sm:text-sm font-semibold rounded-xl hover:bg-[#1c2236] transition">
             Colección Mujer
           </button>
         </div>
       </div>
 
       <!-- Hero mini feature card -->
-      <div class="hidden lg:block w-72 bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl text-left shadow-2xl">
-        <div class="aspect-square rounded-xl overflow-hidden mb-3">
-          <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover">
+      <div class="hidden lg:block w-72 bg-[#121522]/90 backdrop-blur-md border border-slate-800 p-5 rounded-2xl text-left shadow-2xl">
+        <div class="aspect-square rounded-xl overflow-hidden mb-3 bg-[#1a1f33]">
+          <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=500&q=80" alt="Chaqueta Denim Oversize" class="w-full h-full object-cover">
         </div>
-        <p class="text-xs text-indigo-300 font-medium">Recomendación Editorial</p>
+        <p class="text-xs text-amber-400 font-medium">Recomendación Editorial</p>
         <h4 class="text-sm font-semibold text-white mt-1">Chaqueta Denim Oversize</h4>
         <div class="flex items-center justify-between mt-2">
-          <span class="text-sm font-bold text-white">$59.99</span>
-          <button onclick="quickAddToCart(1)" class="text-xs bg-white text-slate-900 px-3 py-1 rounded-lg font-semibold hover:bg-indigo-50">
+          <span class="text-sm font-bold text-amber-300">$59.99</span>
+          <button onclick="quickAddToCart(1)" class="text-xs bg-amber-400 hover:bg-amber-300 text-slate-950 px-3 py-1 rounded-lg font-bold transition">
             Añadir
           </button>
         </div>
@@ -119,45 +129,45 @@
   </section>
 
   <!-- Features Row -->
-  <section class="bg-white border-b border-slate-100 py-6">
+  <section class="bg-[#0d0f17] border-b border-slate-800/60 py-6">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center sm:text-left">
       <div class="flex items-center gap-3 p-2">
-        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-base flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-base flex-shrink-0">
           <i class="fa-solid fa-truck-fast"></i>
         </div>
         <div>
-          <h4 class="text-xs font-bold text-slate-900">Envío Rápido</h4>
-          <p class="text-[11px] text-slate-400">Entrega en 24-48 horas</p>
+          <h4 class="text-xs font-bold text-slate-200">Envío Rápido</h4>
+          <p class="text-[11px] text-slate-500">Entrega en 24-48 horas</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3 p-2">
-        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-base flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-base flex-shrink-0">
           <i class="fa-solid fa-award"></i>
         </div>
         <div>
-          <h4 class="text-xs font-bold text-slate-900">100% Algodón & Lino</h4>
-          <p class="text-[11px] text-slate-400">Materiales de alta durabilidad</p>
+          <h4 class="text-xs font-bold text-slate-200">100% Algodón & Lino</h4>
+          <p class="text-[11px] text-slate-500">Materiales de alta durabilidad</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3 p-2">
-        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-base flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-base flex-shrink-0">
           <i class="fa-solid fa-rotate-left"></i>
         </div>
         <div>
-          <h4 class="text-xs font-bold text-slate-900">Cambios Gratuitos</h4>
-          <p class="text-[11px] text-slate-400">30 días de garantía</p>
+          <h4 class="text-xs font-bold text-slate-200">Cambios Gratuitos</h4>
+          <p class="text-[11px] text-slate-500">30 días de garantía</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3 p-2">
-        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-base flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-base flex-shrink-0">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <div>
-          <h4 class="text-xs font-bold text-slate-900">Compra Segura</h4>
-          <p class="text-[11px] text-slate-400">Pagos encriptados SSL</p>
+          <h4 class="text-xs font-bold text-slate-200">Compra Segura</h4>
+          <p class="text-[11px] text-slate-500">Pagos encriptados SSL</p>
         </div>
       </div>
     </div>
@@ -167,40 +177,40 @@
   <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     
     <!-- Header with Filters & Sort -->
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-slate-200">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
       <div>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900">Catálogo de Prendas</h2>
-        <p class="text-xs text-slate-500 mt-1">Explora las últimas tendencias y prendas esenciales para tu estilo.</p>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">Catálogo de Prendas</h2>
+        <p class="text-xs text-slate-400 mt-1">Explora las últimas tendencias y prendas esenciales para tu estilo personal.</p>
       </div>
 
       <!-- Filters & Sort Controls -->
       <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
         <!-- Category Buttons -->
-        <div class="flex flex-wrap gap-1.5 p-1 bg-slate-200/60 rounded-xl border border-slate-200">
-          <button data-category="all" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-900 text-white">
+        <div class="flex flex-wrap gap-1.5 p-1 bg-[#131624] rounded-xl border border-slate-800">
+          <button data-category="all" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-amber-400 text-slate-950">
             Todos
           </button>
-          <button data-category="mujer" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-white text-slate-600 border border-slate-200 hover:text-slate-900">
+          <button data-category="mujer" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-transparent text-slate-400 hover:text-white border border-transparent">
             Mujer
           </button>
-          <button data-category="hombre" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-white text-slate-600 border border-slate-200 hover:text-slate-900">
+          <button data-category="hombre" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-transparent text-slate-400 hover:text-white border border-transparent">
             Hombre
           </button>
-          <button data-category="calzado" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-white text-slate-600 border border-slate-200 hover:text-slate-900">
+          <button data-category="calzado" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-transparent text-slate-400 hover:text-white border border-transparent">
             Calzado
           </button>
-          <button data-category="accesorios" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-white text-slate-600 border border-slate-200 hover:text-slate-900">
+          <button data-category="accesorios" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-transparent text-slate-400 hover:text-white border border-transparent">
             Accesorios
           </button>
         </div>
 
         <!-- Sort Select -->
         <div class="relative">
-          <select id="sortSelect" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer shadow-sm">
-            <option value="featured">Destacados</option>
-            <option value="price-low">Precio: Menor a Mayor</option>
-            <option value="price-high">Precio: Mayor a Menor</option>
-            <option value="rating">Mejor Calificados</option>
+          <select id="sortSelect" class="bg-[#131624] border border-slate-800 rounded-xl px-3 py-2 text-xs font-medium text-slate-200 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 cursor-pointer shadow-sm">
+            <option value="featured" class="bg-[#131624] text-slate-200">Destacados</option>
+            <option value="price-low" class="bg-[#131624] text-slate-200">Precio: Menor a Mayor</option>
+            <option value="price-high" class="bg-[#131624] text-slate-200">Precio: Mayor a Menor</option>
+            <option value="rating" class="bg-[#131624] text-slate-200">Mejor Calificados</option>
           </select>
         </div>
       </div>
@@ -208,25 +218,25 @@
 
     <!-- Products Grid -->
     <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-      <!-- Inyectado dinámicamente desde products.js -->
+      <!-- Inyectado dinámicamente desde products.js / app.js -->
     </div>
   </main>
 
   <!-- Newsletter Section -->
-  <section class="bg-slate-900 text-white py-14 mt-12 border-t border-slate-800">
+  <section class="bg-[#0d0f17] text-white py-14 mt-12 border-t border-slate-800/80">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <span class="text-xs uppercase font-bold text-indigo-400 tracking-wider">Únete al Club AURA</span>
-      <h3 class="font-serif text-3xl font-bold mt-2">Recibe un 15% de descuento en tu primera compra</h3>
-      <p class="text-xs text-slate-400 mt-2">Suscríbete a nuestro boletín y mantente al día con lanzamientos exclusivos y ofertas especiales.</p>
+      <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Únete al Club AURA</span>
+      <h3 class="font-serif text-3xl font-bold mt-2 text-slate-100">Recibe un 15% de descuento en tu primera compra</h3>
+      <p class="text-xs text-slate-400 mt-2">Suscríbete a nuestro boletín y mantente al día con lanzamientos exclusivos, adelantos y ofertas para miembros.</p>
       
       <form onsubmit="event.preventDefault(); showToast('¡Gracias por suscribirte!');" class="mt-6 flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
         <input 
           type="email" 
           required 
           placeholder="Ingresa tu correo electrónico..." 
-          class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-400 outline-none focus:border-indigo-500"
+          class="flex-1 bg-[#151928] border border-slate-700/80 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 outline-none focus:border-amber-400"
         >
-        <button type="submit" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition shadow-md">
+        <button type="submit" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs px-5 py-2.5 rounded-xl transition shadow-md hover:scale-[1.02]">
           Suscribirme
         </button>
       </form>
@@ -234,32 +244,32 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-950 text-slate-500 text-xs py-8 border-t border-slate-900">
+  <footer class="bg-[#06070a] text-slate-400 text-xs py-8 border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
         <span class="font-serif text-lg font-bold tracking-widest text-white">AURA</span>
-        <span>© 2026 Todos los derechos reservados.</span>
+        <span class="text-slate-500">© 2026 Todos los derechos reservados.</span>
       </div>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition">Términos</a>
-        <a href="#" class="hover:text-white transition">Privacidad</a>
-        <a href="#" class="hover:text-white transition">Guía de Tallas</a>
-        <a href="#" class="hover:text-white transition">Contacto</a>
+        <a href="#" class="hover:text-amber-400 transition">Términos</a>
+        <a href="#" class="hover:text-amber-400 transition">Privacidad</a>
+        <a href="#" class="hover:text-amber-400 transition">Guía de Tallas</a>
+        <a href="#" class="hover:text-amber-400 transition">Contacto</a>
       </div>
     </div>
   </footer>
 
   <!-- ==================== DRAWER DEL CARRITO ==================== -->
-  <div id="cartOverlay" onclick="toggleCart(false)" class="hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-50 transition-opacity"></div>
+  <div id="cartOverlay" onclick="toggleCart(false)" class="hidden fixed inset-0 bg-black/75 backdrop-blur-sm z-50 transition-opacity"></div>
   
-  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-[#0f111a] text-slate-100 z-50 shadow-2xl flex flex-col border-l border-slate-800 transform translate-x-full transition-transform duration-300 ease-in-out">
     <!-- Header Carrito -->
-    <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+    <div class="p-5 border-b border-slate-800 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <i class="fa-solid fa-bag-shopping text-indigo-600"></i>
-        <h3 class="font-bold text-slate-900 text-base">Bolsa de Compras</h3>
+        <i class="fa-solid fa-bag-shopping text-amber-400"></i>
+        <h3 class="font-bold text-white text-base">Bolsa de Compras</h3>
       </div>
-      <button onclick="toggleCart(false)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg">
+      <button onclick="toggleCart(false)" class="p-2 text-slate-400 hover:text-white rounded-lg transition">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
     </div>
@@ -270,25 +280,25 @@
     </div>
 
     <!-- Footer / Resumen y Checkout -->
-    <div class="p-5 bg-slate-50 border-t border-slate-100 space-y-3">
-      <div class="space-y-1.5 text-xs text-slate-600">
+    <div class="p-5 bg-[#131624] border-t border-slate-800 space-y-3">
+      <div class="space-y-1.5 text-xs text-slate-300">
         <div class="flex justify-between">
-          <span>Subtotal</span>
-          <span id="cartSubtotal" class="font-semibold text-slate-900">$0.00</span>
+          <span class="text-slate-400">Subtotal</span>
+          <span id="cartSubtotal" class="font-semibold text-slate-100">$0.00</span>
         </div>
         <div class="flex justify-between">
-          <span>Envío</span>
-          <span id="cartShipping" class="font-semibold text-emerald-600">Gratis</span>
+          <span class="text-slate-400">Envío</span>
+          <span id="cartShipping" class="font-semibold text-emerald-400">Gratis</span>
         </div>
-        <div class="flex justify-between text-sm font-bold text-slate-900 pt-2 border-t border-slate-200">
+        <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-slate-700/80">
           <span>Total</span>
-          <span id="cartTotal">$0.00</span>
+          <span id="cartTotal" class="text-amber-300">$0.00</span>
         </div>
       </div>
 
       <button 
         onclick="openCheckout()" 
-        class="w-full bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm py-3 rounded-xl transition shadow-md flex items-center justify-center gap-2"
+        class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm py-3 rounded-xl transition shadow-md flex items-center justify-center gap-2"
       >
         <span>Proceder al Pago</span>
         <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -296,7 +306,7 @@
 
       <button 
         onclick="toggleCart(false)" 
-        class="w-full text-center text-xs text-slate-500 hover:text-slate-800 transition py-1"
+        class="w-full text-center text-xs text-slate-400 hover:text-slate-200 transition py-1"
       >
         Continuar comprando
       </button>
@@ -304,57 +314,57 @@
   </div>
 
   <!-- ==================== MODAL VISTA RÁPIDA (QUICK VIEW) ==================== -->
-  <div id="quickViewModal" class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row relative">
-      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-600 flex items-center justify-center shadow">
+  <div id="quickViewModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-[#10131e] rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-800 flex flex-col md:flex-row relative">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-[#181c2b] hover:bg-slate-700 text-slate-300 flex items-center justify-center shadow transition">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
       <!-- Imagen -->
-      <div class="md:w-1/2 aspect-square md:aspect-auto bg-slate-50">
+      <div class="md:w-1/2 aspect-square md:aspect-auto bg-[#181c2c]">
         <img id="qvImage" src="" alt="Producto" class="w-full h-full object-cover">
       </div>
 
       <!-- Info -->
       <div class="md:w-1/2 p-6 flex flex-col justify-between">
         <div>
-          <span id="qvCategory" class="text-[10px] uppercase tracking-wider font-bold text-indigo-600"></span>
-          <h3 id="qvTitle" class="font-serif text-xl font-bold text-slate-900 mt-1"></h3>
+          <span id="qvCategory" class="text-[10px] uppercase tracking-wider font-bold text-amber-400"></span>
+          <h3 id="qvTitle" class="font-serif text-xl font-bold text-white mt-1"></h3>
           
           <div class="flex items-center gap-2 mt-2">
-            <span class="text-amber-500 text-xs flex items-center gap-1 font-semibold">
+            <span class="text-amber-400 text-xs flex items-center gap-1 font-semibold">
               <i class="fa-solid fa-star"></i> <span id="qvRating"></span>
             </span>
             <span id="qvReviews" class="text-slate-400 text-xs"></span>
           </div>
 
-          <div class="text-2xl font-bold text-slate-900 mt-3" id="qvPrice"></div>
-          <p id="qvDescription" class="text-xs text-slate-500 mt-3 leading-relaxed"></p>
+          <div class="text-2xl font-bold text-amber-300 mt-3" id="qvPrice"></div>
+          <p id="qvDescription" class="text-xs text-slate-300 mt-3 leading-relaxed"></p>
 
           <!-- Tallas -->
           <div class="mt-4">
-            <label class="block text-xs font-semibold text-slate-700 mb-2">Selecciona tu Talla:</label>
+            <label class="block text-xs font-semibold text-slate-300 mb-2">Selecciona tu Talla:</label>
             <div id="qvSizes" class="flex flex-wrap gap-2"></div>
           </div>
 
           <!-- Colores -->
           <div class="mt-4">
-            <label class="block text-xs font-semibold text-slate-700 mb-2">Color:</label>
+            <label class="block text-xs font-semibold text-slate-300 mb-2">Color:</label>
             <div id="qvColors" class="flex flex-wrap gap-2"></div>
           </div>
 
           <!-- Cantidad -->
           <div class="mt-4 flex items-center gap-3">
-            <label class="text-xs font-semibold text-slate-700">Cantidad:</label>
-            <input type="number" id="qvQuantity" value="1" min="1" max="10" class="w-16 border border-slate-300 rounded-lg px-2 py-1 text-center text-xs font-semibold">
+            <label class="text-xs font-semibold text-slate-300">Cantidad:</label>
+            <input type="number" id="qvQuantity" value="1" min="1" max="10" class="w-16 bg-[#171b29] border border-slate-700 text-white rounded-lg px-2 py-1 text-center text-xs font-semibold focus:outline-none focus:border-amber-400">
           </div>
         </div>
 
         <!-- Botón Añadir -->
-        <div class="mt-6 pt-4 border-t border-slate-100">
+        <div class="mt-6 pt-4 border-t border-slate-800">
           <button 
             onclick="addFromQuickView()" 
-            class="w-full bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold py-3 rounded-xl transition shadow flex items-center justify-center gap-2"
+            class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold py-3 rounded-xl transition shadow flex items-center justify-center gap-2"
           >
             <i class="fa-solid fa-bag-shopping"></i> Añadir a la Bolsa
           </button>
@@ -364,47 +374,47 @@
   </div>
 
   <!-- ==================== MODAL DE CHECKOUT ==================== -->
-  <div id="checkoutModal" class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100">
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+  <div id="checkoutModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-[#10131e] rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-800 text-slate-100">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
         <div>
-          <h3 class="font-serif text-lg font-bold text-slate-900">Finalizar Compra</h3>
-          <p class="text-xs text-slate-400">Total a pagar: <strong id="checkoutTotal" class="text-slate-900"></strong> (<span id="checkoutItemsCount"></span> artículos)</p>
+          <h3 class="font-serif text-lg font-bold text-white">Finalizar Compra</h3>
+          <p class="text-xs text-slate-400">Total a pagar: <strong id="checkoutTotal" class="text-amber-300"></strong> (<span id="checkoutItemsCount"></span> artículos)</p>
         </div>
-        <button onclick="closeCheckout()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <button onclick="closeCheckout()" class="text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
       </div>
 
       <form onsubmit="processCheckout(event)" class="mt-4 space-y-3">
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Nombre Completo *</label>
-          <input type="text" id="checkoutName" required placeholder="Ej: Valentina Morales" class="w-full text-xs border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre Completo *</label>
+          <input type="text" id="checkoutName" required placeholder="Ej: Valentina Morales" class="w-full text-xs bg-[#171b29] border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Correo Electrónico *</label>
-          <input type="email" id="checkoutEmail" required placeholder="tu@correo.com" class="w-full text-xs border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Correo Electrónico *</label>
+          <input type="email" id="checkoutEmail" required placeholder="tu@correo.com" class="w-full text-xs bg-[#171b29] border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Dirección de Entrega *</label>
-          <input type="text" required placeholder="Calle, número, departamento, ciudad" class="w-full text-xs border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Dirección de Entrega *</label>
+          <input type="text" required placeholder="Calle, número, departamento, ciudad" class="w-full text-xs bg-[#171b29] border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400">
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold text-slate-600 mb-1">Teléfono</label>
-            <input type="tel" placeholder="+57 300 000 0000" class="w-full text-xs border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono</label>
+            <input type="tel" placeholder="+57 300 000 0000" class="w-full text-xs bg-[#171b29] border border-slate-700 text-white placeholder-slate-500 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-600 mb-1">Método de Pago</label>
-            <select class="w-full text-xs border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
-              <option>Tarjeta Débito / Crédito</option>
-              <option>Pago Contra Entrega</option>
-              <option>Transferencia Bancaria</option>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Método de Pago</label>
+            <select class="w-full text-xs bg-[#171b29] border border-slate-700 text-white rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 cursor-pointer">
+              <option class="bg-[#171b29] text-white">Tarjeta Débito / Crédito</option>
+              <option class="bg-[#171b29] text-white">Pago Contra Entrega</option>
+              <option class="bg-[#171b29] text-white">Transferencia Bancaria</option>
             </select>
           </div>
         </div>
 
-        <div class="pt-4 flex justify-end gap-2">
-          <button type="button" onclick="closeCheckout()" class="px-4 py-2 text-xs text-slate-600 hover:bg-slate-100 rounded-xl">Cancelar</button>
-          <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl shadow-md flex items-center gap-2">
+        <div class="pt-4 flex justify-end gap-2 border-t border-slate-800">
+          <button type="button" onclick="closeCheckout()" class="px-4 py-2 text-xs text-slate-400 hover:bg-[#1a1f30] rounded-xl transition">Cancelar</button>
+          <button type="submit" class="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs rounded-xl shadow-md flex items-center gap-2 transition hover:scale-[1.02]">
             <i class="fa-solid fa-lock text-[10px]"></i> Confirmar Pedido
           </button>
         </div>

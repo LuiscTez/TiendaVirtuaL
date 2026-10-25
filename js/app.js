@@ -60,11 +60,11 @@ function renderProducts() {
   // Si no hay resultados
   if (filtered.length === 0) {
     productsGrid.innerHTML = `
-      <div class="col-span-full py-16 text-center text-slate-500">
-        <i class="fa-solid fa-shirt text-4xl mb-3 text-slate-300"></i>
-        <h3 class="text-base font-semibold text-slate-700">No encontramos productos</h3>
+      <div class="col-span-full py-16 text-center text-slate-400">
+        <i class="fa-solid fa-shirt text-4xl mb-3 text-slate-600"></i>
+        <h3 class="text-base font-semibold text-slate-200">No encontramos productos</h3>
         <p class="text-xs text-slate-400 mt-1">Prueba con otra palabra clave o limpia los filtros.</p>
-        <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-800 transition">
+        <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-amber-400 text-slate-950 text-xs font-bold rounded-lg hover:bg-amber-300 transition">
           Ver todos los productos
         </button>
       </div>
@@ -79,9 +79,9 @@ function renderProducts() {
       : null;
 
     return `
-      <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col group">
+      <div class="product-card bg-[#121522] rounded-2xl border border-slate-800/80 hover:border-amber-400/50 shadow-xl overflow-hidden flex flex-col group">
         <!-- Contenedor Imagen -->
-        <div class="relative bg-slate-50 aspect-[4/5] overflow-hidden">
+        <div class="relative bg-[#181c2c] aspect-[4/5] overflow-hidden">
           <img 
             src="${product.image}" 
             alt="${escapeHtml(product.name)}" 
@@ -92,7 +92,7 @@ function renderProducts() {
           <!-- Badges -->
           <div class="absolute top-3 left-3 flex flex-col gap-1.5">
             ${product.badge ? `
-              <span class="px-2.5 py-1 text-[11px] font-bold bg-slate-900/90 text-white rounded-full backdrop-blur-sm shadow-sm">
+              <span class="px-2.5 py-1 text-[11px] font-bold bg-[#090a0f]/90 text-amber-300 border border-amber-400/30 rounded-full backdrop-blur-sm shadow-sm">
                 ${product.badge}
               </span>
             ` : ''}
@@ -104,10 +104,10 @@ function renderProducts() {
           </div>
 
           <!-- Botón de Vista Rápida -->
-          <div class="absolute inset-0 bg-slate-900/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-4">
+          <div class="absolute inset-0 bg-[#090a0f]/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-4">
             <button 
               onclick="openQuickView(${product.id})" 
-              class="bg-white/95 hover:bg-white text-slate-900 px-4 py-2 rounded-xl text-xs font-semibold shadow-lg transition transform hover:scale-105 flex items-center gap-2"
+              class="bg-[#181c2b]/95 hover:bg-amber-400 hover:text-slate-950 text-white border border-slate-700/80 px-4 py-2 rounded-xl text-xs font-bold shadow-lg transition transform hover:scale-105 flex items-center gap-2"
             >
               <i class="fa-regular fa-eye"></i> Vista Rápida
             </button>
@@ -118,27 +118,27 @@ function renderProducts() {
         <div class="p-4 flex-1 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
-              <span class="uppercase tracking-wider font-medium text-[10px]">${product.category}</span>
-              <span class="flex items-center text-amber-500 font-semibold gap-1">
+              <span class="uppercase tracking-wider font-semibold text-[10px] text-amber-400/90">${product.category}</span>
+              <span class="flex items-center text-amber-400 font-semibold gap-1">
                 <i class="fa-solid fa-star text-[11px]"></i> ${product.rating}
               </span>
             </div>
-            <h3 class="font-semibold text-slate-900 text-sm hover:text-indigo-600 transition cursor-pointer" onclick="openQuickView(${product.id})">
+            <h3 class="font-semibold text-slate-100 text-sm hover:text-amber-400 transition cursor-pointer" onclick="openQuickView(${product.id})">
               ${escapeHtml(product.name)}
             </h3>
-            <p class="text-xs text-slate-500 mt-1 line-clamp-2">${escapeHtml(product.description)}</p>
+            <p class="text-xs text-slate-400 mt-1 line-clamp-2">${escapeHtml(product.description)}</p>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
             <div class="flex items-baseline gap-2">
-              <span class="text-base font-bold text-slate-900">$${product.price.toFixed(2)}</span>
+              <span class="text-base font-bold text-amber-300">$${product.price.toFixed(2)}</span>
               ${hasDiscount ? `
-                <span class="text-xs text-slate-400 line-through">$${product.originalPrice.toFixed(2)}</span>
+                <span class="text-xs text-slate-500 line-through">$${product.originalPrice.toFixed(2)}</span>
               ` : ''}
             </div>
             <button 
               onclick="quickAddToCart(${product.id})" 
-              class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white flex items-center justify-center transition shadow-sm hover:scale-105 active:scale-95"
+              class="w-9 h-9 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold flex items-center justify-center transition shadow-sm hover:scale-105 active:scale-95"
               title="Añadir al carrito"
             >
               <i class="fa-solid fa-bag-shopping text-xs"></i>
@@ -155,17 +155,24 @@ function setupFilterButtons() {
   const buttons = document.querySelectorAll('.cat-filter-btn');
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => {
-        b.classList.remove('bg-slate-900', 'text-white');
-        b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
-      });
-      btn.classList.add('bg-slate-900', 'text-white');
-      btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-
-      currentCategory = btn.dataset.category;
-      renderProducts();
+      setActiveCategory(btn.dataset.category);
     });
   });
+}
+
+function setActiveCategory(category) {
+  currentCategory = category;
+  const buttons = document.querySelectorAll('.cat-filter-btn');
+  buttons.forEach(b => {
+    if (b.dataset.category === category) {
+      b.classList.add('bg-amber-400', 'text-slate-950', 'font-bold');
+      b.classList.remove('bg-transparent', 'text-slate-400', 'border-transparent');
+    } else {
+      b.classList.remove('bg-amber-400', 'text-slate-950', 'font-bold');
+      b.classList.add('bg-transparent', 'text-slate-400', 'border-transparent');
+    }
+  });
+  renderProducts();
 }
 
 // Configurar barra de búsqueda y select de orden
@@ -185,11 +192,9 @@ function setupSearchAndSort() {
 }
 
 function resetFilters() {
-  currentCategory = 'all';
   searchQuery = '';
   document.getElementById('searchInput').value = '';
-  setupFilterButtons();
-  renderProducts();
+  setActiveCategory('all');
 }
 
 // ==================== CARRITO DE COMPRAS ====================
@@ -258,9 +263,9 @@ function updateCartUI() {
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = `
-      <div class="py-16 text-center text-slate-400">
-        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-slate-200"></i>
-        <p class="text-sm font-medium text-slate-600">Tu carrito está vacío</p>
+      <div class="py-16 text-center text-slate-500">
+        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-slate-600"></i>
+        <p class="text-sm font-semibold text-slate-200">Tu bolsa está vacía</p>
         <p class="text-xs text-slate-400 mt-1">Explora nuestras prendas y añade tus favoritas.</p>
       </div>
     `;
@@ -279,26 +284,26 @@ function updateCartUI() {
   cartTotalEl.textContent = `$${total.toFixed(2)}`;
 
   cartItemsContainer.innerHTML = cart.map(item => `
-    <div class="flex gap-3 py-3 border-b border-slate-100 last:border-b-0">
-      <img src="${item.image}" alt="${escapeHtml(item.name)}" class="w-16 h-20 object-cover rounded-xl bg-slate-50 flex-shrink-0">
+    <div class="flex gap-3 py-3 border-b border-slate-800 last:border-b-0">
+      <img src="${item.image}" alt="${escapeHtml(item.name)}" class="w-16 h-20 object-cover rounded-xl bg-[#181c2c] flex-shrink-0">
       <div class="flex-1 flex flex-col justify-between">
         <div class="flex justify-between items-start gap-2">
           <div>
-            <h4 class="text-xs font-semibold text-slate-900 leading-snug">${escapeHtml(item.name)}</h4>
+            <h4 class="text-xs font-semibold text-slate-100 leading-snug">${escapeHtml(item.name)}</h4>
             <p class="text-[11px] text-slate-400 mt-0.5">${item.size} • ${item.color}</p>
           </div>
-          <button onclick="removeCartItem('${item.cartKey}')" class="text-slate-300 hover:text-rose-500 transition text-xs p-1" title="Eliminar">
+          <button onclick="removeCartItem('${item.cartKey}')" class="text-slate-500 hover:text-rose-400 transition text-xs p-1" title="Eliminar">
             <i class="fa-regular fa-trash-can"></i>
           </button>
         </div>
 
         <div class="flex justify-between items-center mt-2">
-          <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
-            <button onclick="updateCartQuantity('${item.cartKey}', -1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-600 hover:bg-slate-200 transition">-</button>
-            <span class="w-7 text-center text-xs font-semibold text-slate-800">${item.quantity}</span>
-            <button onclick="updateCartQuantity('${item.cartKey}', 1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-600 hover:bg-slate-200 transition">+</button>
+          <div class="flex items-center border border-slate-700/80 rounded-lg overflow-hidden bg-[#181c2c]">
+            <button onclick="updateCartQuantity('${item.cartKey}', -1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-300 hover:bg-slate-700 transition">-</button>
+            <span class="w-7 text-center text-xs font-semibold text-slate-100">${item.quantity}</span>
+            <button onclick="updateCartQuantity('${item.cartKey}', 1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-300 hover:bg-slate-700 transition">+</button>
           </div>
-          <span class="text-xs font-bold text-slate-900">$${(item.price * item.quantity).toFixed(2)}</span>
+          <span class="text-xs font-bold text-amber-300">$${(item.price * item.quantity).toFixed(2)}</span>
         </div>
       </div>
     </div>
@@ -341,7 +346,7 @@ function openQuickView(productId) {
     <button 
       type="button" 
       onclick="selectSize('${s}', this)" 
-      class="qv-size-btn text-xs font-semibold px-3 py-1.5 rounded-lg border ${idx === 0 ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-700 border-slate-200'} transition hover:border-slate-900"
+      class="qv-size-btn text-xs font-semibold px-3 py-1.5 rounded-lg border ${idx === 0 ? 'bg-amber-400 text-slate-950 border-amber-400 font-bold' : 'bg-[#181c2b] text-slate-200 border-slate-700 hover:border-slate-500'} transition"
     >
       ${s}
     </button>
@@ -353,7 +358,7 @@ function openQuickView(productId) {
     <button 
       type="button" 
       onclick="selectColor('${c}', this)" 
-      class="qv-color-btn text-xs font-medium px-3 py-1.5 rounded-lg border ${idx === 0 ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-700 border-slate-200'} transition hover:border-slate-900"
+      class="qv-color-btn text-xs font-medium px-3 py-1.5 rounded-lg border ${idx === 0 ? 'bg-amber-400 text-slate-950 border-amber-400 font-bold' : 'bg-[#181c2b] text-slate-200 border-slate-700 hover:border-slate-500'} transition"
     >
       ${c}
     </button>
@@ -367,21 +372,21 @@ function openQuickView(productId) {
 function selectSize(size, btn) {
   selectedSize = size;
   document.querySelectorAll('.qv-size-btn').forEach(b => {
-    b.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
-    b.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+    b.classList.remove('bg-amber-400', 'text-slate-950', 'border-amber-400', 'font-bold');
+    b.classList.add('bg-[#181c2b]', 'text-slate-200', 'border-slate-700');
   });
-  btn.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
-  btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+  btn.classList.add('bg-amber-400', 'text-slate-950', 'border-amber-400', 'font-bold');
+  btn.classList.remove('bg-[#181c2b]', 'text-slate-200', 'border-slate-700');
 }
 
 function selectColor(color, btn) {
   selectedColor = color;
   document.querySelectorAll('.qv-color-btn').forEach(b => {
-    b.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
-    b.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+    b.classList.remove('bg-amber-400', 'text-slate-950', 'border-amber-400', 'font-bold');
+    b.classList.add('bg-[#181c2b]', 'text-slate-200', 'border-slate-700');
   });
-  btn.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
-  btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+  btn.classList.add('bg-amber-400', 'text-slate-950', 'border-amber-400', 'font-bold');
+  btn.classList.remove('bg-[#181c2b]', 'text-slate-200', 'border-slate-700');
 }
 
 function addFromQuickView() {

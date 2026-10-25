@@ -1,4 +1,4 @@
-/* Estilos adicionales personalizados para AURA Boutique */
+/* Estilos adicionales personalizados para AURA Boutique - Modo Oscuro de Lujo */
 
 @keyframes slideInRight {
   from {
@@ -28,31 +28,32 @@
   animation: fadeIn 0.25s ease-out forwards;
 }
 
-/* Scrollbar estética */
+/* Scrollbar estética oscura */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: #090a0f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #1f2538;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #333c56;
 }
 
 /* Efecto hover suave en tarjetas de productos */
 .product-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .product-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7);
 }
 
-/* Toast flotante de notificaciones */
+/* Toast flotante de notificaciones en tema oscuro de lujo */
 .toast-notification {
   position: fixed;
   bottom: 24px;
@@ -61,11 +62,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #0f172a;
-  color: #ffffff;
+  background-color: #141724;
+  color: #f8fafc;
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 12px 18px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6);
   font-size: 13px;
   font-weight: 500;
   opacity: 0;
